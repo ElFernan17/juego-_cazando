@@ -14,16 +14,26 @@ let comidaX = 490
 let comidaY = 490
 
 function dibujarGato(){
-    context.fillStyle = "orange"
-    context.fillRect(gatoX,gatoY,anchoGato,altoGato)
+   
+    dibujarRectangulo(gatoX,gatoY,anchoGato,altoGato,"orange");
 } 
 
 function dibujarComida(){
-    context.fillStyle = "red"
-    context.fillRect(comidaX,comidaY,anchoComida,altoComida)
+    
+    dibujarRectangulo(comidaX,comidaY,anchoComida,altoComida,"red");
 }
 
 function iniciarJuego(){
     dibujarComida();
     dibujarGato();
+}
+
+function dibujarRectangulo(x,y,ancho,alto,color){
+    let xFloat = parseFloat(x);
+    let yFloat = parseFloat(y);
+    let anchoFloat = parseFloat(ancho);
+    let altoFloat = parseFloat(alto);
+
+    context.fillStyle = color
+    context.fillRect(xFloat,yFloat,anchoFloat,altoFloat)
 }
