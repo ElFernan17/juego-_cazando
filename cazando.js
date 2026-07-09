@@ -8,27 +8,33 @@ const anchoComida = 10
 const altoComida = 10
 
 //variables
-let gatoX = canvas.width/2
-let gatoY = canvas.height/2
-let comidaX = 490
-let comidaY = 490
+let gatoX = 0
+let gatoY = 0
+let comidaX = 0
+let comidaY = 0
 
-function dibujarGato(){
+function graficarGato(){
    
-    dibujarRectangulo(gatoX,gatoY,anchoGato,altoGato,"orange");
+    graficarRectangulo(gatoX,gatoY,anchoGato,altoGato,"orange");
 } 
 
-function dibujarComida(){
+function graficarComida(){
     
-    dibujarRectangulo(comidaX,comidaY,anchoComida,altoComida,"red");
+    graficarRectangulo(comidaX,comidaY,anchoComida,altoComida,"red");
 }
 
 function iniciarJuego(){
-    dibujarComida();
-    dibujarGato();
+    gatoX = canvas.width/2
+    gatoY = canvas.height/2
+    comidaX = canvas.width-10
+    comidaY = canvas.height-10
+
+    graficarComida();
+    graficarGato();
 }
 
-function dibujarRectangulo(x,y,ancho,alto,color){
+
+function graficarRectangulo(x,y,ancho,alto,color){
     let xFloat = parseFloat(x);
     let yFloat = parseFloat(y);
     let anchoFloat = parseFloat(ancho);
