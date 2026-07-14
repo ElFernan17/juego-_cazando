@@ -43,3 +43,18 @@ function graficarRectangulo(x,y,ancho,alto,color){
     context.fillStyle = color
     context.fillRect(xFloat,yFloat,anchoFloat,altoFloat)
 }
+
+function limpiarCanva(){
+    context.clearRect(0,0,500,500)
+}
+
+function actualizarPantalla(){
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+
+function moverIzquierda(){
+    gatoX = gatoX - 10
+    actualizarPantalla();
+}
