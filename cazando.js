@@ -26,8 +26,8 @@ function graficarComida(){
 function iniciarJuego(){
     gatoX = canvas.width/2
     gatoY = canvas.height/2
-    comidaX = canvas.width-10
-    comidaY = canvas.height-10
+    comidaX = canvas.width-100
+    comidaY = canvas.height-100
 
     graficarComida();
     graficarGato();
@@ -57,19 +57,33 @@ function actualizarPantalla(){
 function moverIzquierda(){
     gatoX = gatoX - 10
     actualizarPantalla();
+    detectarColision();
 }
 
 function moverDerecha(){
     gatoX = gatoX + 10
     actualizarPantalla();
+    detectarColision();
 }
 
 function moverArriba(){
     gatoY = gatoY - 10
     actualizarPantalla();
+    detectarColision();
 }
 
 function moverAbajo(){
     gatoY = gatoY + 10
     actualizarPantalla();
+    detectarColision();
+}
+
+function detectarColision(){
+    if(
+    gatoX < comidaX + anchoComida &&
+    gatoX + anchoGato > comidaX &&
+    gatoY < comidaY + altoComida &&
+    gatoY + altoGato > comidaY) 
+    
+    {    alert("te la comiste >;)")}
 }
