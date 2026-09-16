@@ -4,12 +4,16 @@ let context = canvas.getContext("2d");
 //constantes
 const anchoGato = 20
 const altoGato = 40
+
 const anchoComida = 10
 const altoComida = 10
 
 //variables
+
+
 let gatoX = 0
 let gatoY = 0
+
 let comidaX = 0
 let comidaY = 0
 
@@ -78,12 +82,29 @@ function moverAbajo(){
     detectarColision();
 }
 
+function numeroAleatorio(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let puntos = 0
+
 function detectarColision(){
     if(
     gatoX < comidaX + anchoComida &&
     gatoX + anchoGato > comidaX &&
     gatoY < comidaY + altoComida &&
     gatoY + altoGato > comidaY) 
-    
-    {    alert("te la comiste >;)")}
+
+    {    alert("te la comiste >;)")
+
+        comidaX = numeroAleatorio(0, canvas.width)
+        comidaY = numeroAleatorio(0, canvas.height)
+
+        actualizarPantalla();
+
+        puntos = puntos + 1
+
+        mostrarTextoSpan( "puntos" , puntos );
+
+    }
 }
