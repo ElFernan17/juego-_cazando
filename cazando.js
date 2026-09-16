@@ -108,3 +108,24 @@ function detectarColision(){
 
     }
 }
+
+let segundos = 10
+
+function restarTiempo(){
+
+    segundos = segundos - 1
+
+    mostrarTextoSpan( "tiempo", segundos );
+}
+
+const tiempo = setInterval(()=>
+    {
+        restarTiempo();
+
+
+        if (segundos == 0){
+
+            clearInterval(tiempo)
+        }
+    } , 1000
+);
