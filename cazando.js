@@ -33,8 +33,10 @@ function iniciarJuego(){
     comidaX = canvas.width-100
     comidaY = canvas.height-100
 
+    actualizarPantalla();
     graficarComida();
     graficarGato();
+    
 }
 
 
@@ -123,9 +125,47 @@ const tiempo = setInterval(()=>
         restarTiempo();
 
 
-        if (segundos == 0){
-
-            clearInterval(tiempo)
+        if (segundos == 0) {
+            clearInterval(tiempo);
+            alert("Game Over");
         }
     } , 1000
 );
+
+const revisarPuntaje = setInterval(()=>
+    {
+
+        if (puntos == 6) {
+            clearInterval(tiempo);
+            alert("Ganaste");
+        }
+    } , 1000
+);
+
+function reiniciarJuego(){
+
+    
+    if (segundos == 0)
+    {
+        const tiempo = setInterval(()=>
+    {
+        restarTiempo();
+
+
+        if (segundos == 0) {
+            clearInterval(tiempo);
+            alert("Game Over");
+        }
+    } , 1000
+);
+    }
+segundos = 10
+
+    puntos = 0
+
+    iniciarJuego();
+
+    mostrarTextoSpan( "puntos" , puntos );
+    mostrarTextoSpan( "tiempo", segundos );
+
+}
