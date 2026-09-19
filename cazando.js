@@ -2,8 +2,8 @@ let canvas = document.getElementById("areaJuego");
 let context = canvas.getContext("2d");
 
 //constantes
-const anchoGato = 20
-const altoGato = 40
+const anchoGato = 40
+const altoGato = 80
 
 const anchoComida = 10
 const altoComida = 10
@@ -19,12 +19,12 @@ let comidaY = 0
 
 function graficarGato(){
    
-    graficarRectangulo(gatoX,gatoY,anchoGato,altoGato,"orange");
+    graficarRectangulo(gatoX,gatoY,anchoGato,altoGato,"pink");
 } 
 
 function graficarComida(){
     
-    graficarRectangulo(comidaX,comidaY,anchoComida,altoComida,"red");
+    graficarRectangulo(comidaX,comidaY,anchoComida,altoComida,"blue");
 }
 
 function iniciarJuego(){
@@ -127,7 +127,7 @@ const tiempo = setInterval(()=>
 
         if (segundos == 0) {
             clearInterval(tiempo);
-            alert("Game Over");
+            alert("Juego Terminado!!");
         }
     } , 1000
 );
@@ -154,7 +154,7 @@ function reiniciarJuego(){
 
         if (segundos == 0) {
             clearInterval(tiempo);
-            alert("Game Over");
+            alert("Juego Terminado!!");
         }
     } , 1000
 );
@@ -169,3 +169,8 @@ segundos = 10
     mostrarTextoSpan( "tiempo", segundos );
 
 }
+
+function desaparecerPersonaje(){
+    context.clearRect(gatoX,gatoY,anchoGato,altoGato)
+}
+
