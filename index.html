@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cazando.css">
   <title>Juego Cazando</title>
 </head>
 <body onload="iniciarJuego();">
 
   <h1>Juego Cazando</h1>
-  <p>Autor: Tu Nombre o Nickname</p>
-    <canvas id="areaJuego" width="500" height="500"></canvas>
-
-  <div class="controles">
-    <button onclick="moverArriba();">⬆</button>
-    <br>
-    <button onclick="moverIzquierda();">⬅</button>
-    <button onclick="moverAbajo();">⬇</button>
-    <button onclick="moverDerecha();">➡</button>
-  </div>
-
+  <p class="autor">Autor: Tu Nombre o Nickname</p>
 
   <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
+    <span class="dato">Puntos <span id="puntos">0</span></span>
+    <span class="dato">Tiempo <span id="tiempo">10</span></span>
   </div>
 
-  <p>
-    <button onclick="reiniciarJuego();">REINICIAR</button>
-    </p>
+  <canvas id="areaJuego" width="500" height="500"></canvas>
 
-  <p id="mensaje"></p>
+  <div class="controles">
+    <button class="btn-flecha btn-arriba" onclick="moverArriba();">⬆</button>
+    <button class="btn-flecha btn-izquierda" onclick="moverIzquierda();">⬅</button>
+    <button class="btn-flecha btn-abajo" onclick="moverAbajo();">⬇</button>
+    <button class="btn-flecha btn-derecha" onclick="moverDerecha();">➡</button>
+  </div>
 
-  <p> <button onclick="desaparecerPersonaje();"> Desaparecer</button></p>
+  <div class="acciones">
+    <button class="btn-primario" onclick="reiniciarJuego();">REINICIAR</button>
+    <button class="btn-secundario" onclick="desaparecerPersonaje();">Desaparecer</button>
+  </div>
+
+  <p id="mensaje" aria-live="polite"></p>
 
   <script src="cazando.js"></script>
   <script src="utilidades.js"></script>
 </body>
-  
 </html>

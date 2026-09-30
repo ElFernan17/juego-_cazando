@@ -1,0 +1,1 @@
+puedes actuar como diseñador grafico y mejorar la interfaz grafica de este juego, quiero que sea en tonalidades de morado y blanco con un estilo minimalista, no cambies los ids de nada para que el juego siga funcionando correctamente trabaja unicamente en lo estetico y manten los archivos css y html separados
