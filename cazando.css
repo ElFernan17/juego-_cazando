@@ -9,7 +9,7 @@
   --violeta-300: #c4b5fd;
   --violeta-100: #ede9fe;
   --violeta-50: #f8f6ff;
-  --texto-suave: #6b5b95;
+  --texto-suave: #5b4a8a;
   --blanco: #ffffff;
 }
 
@@ -30,6 +30,23 @@ body {
   font-family: "Outfit", "Segoe UI", Helvetica, Arial, sans-serif;
   background: var(--violeta-50);
   color: var(--violeta-900);
+}
+
+/* Fondo: imagen + velo claro más fuerte al centro (donde está el juego)
+   para que la imagen se vea sin competir con el contenido */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(248, 246, 255, 0.9) 0%,
+      rgba(248, 246, 255, 0.68) 50%,
+      rgba(248, 246, 255, 0.38) 100%
+    ),
+    url("fondoCazando.jpg") center / cover no-repeat;
 }
 
 h1 {
@@ -62,9 +79,11 @@ h1 {
   padding: 8px 20px;
   font-size: 15px;
   color: var(--texto-suave);
-  background: var(--blanco);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid var(--violeta-100);
   border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .dato span {
@@ -82,9 +101,9 @@ canvas {
   max-width: 100%;
   height: auto;
   background: var(--blanco);
-  border: 1px solid var(--violeta-100);
+  border: 1px solid var(--violeta-300);
   border-radius: 20px;
-  box-shadow: 0 24px 48px -24px rgba(91, 33, 182, 0.35);
+  box-shadow: 0 24px 56px -20px rgba(76, 29, 149, 0.45);
 }
 
 /* ---------- Botones (base) ---------- */
@@ -134,7 +153,8 @@ button:active {
   font-size: 22px;
   line-height: 1;
   color: var(--violeta-600);
-  border-color: var(--violeta-100);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--violeta-300);
   border-radius: 18px;
 }
 
@@ -176,7 +196,7 @@ button:active {
 }
 
 .btn-secundario {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .btn-secundario:hover {
